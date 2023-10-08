@@ -1,8 +1,10 @@
 import { styled } from "styled-components";
 
 const Main = styled.main`
-  width: 45rem;
-  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  width: 32rem;
+  margin: 6rem auto;
 `;
 
 export default Main;

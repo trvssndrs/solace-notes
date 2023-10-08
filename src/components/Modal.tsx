@@ -25,7 +25,19 @@ const ModalBox = styled.div`
   background-color: white;
   border: 1px solid black;
   padding: 2rem;
+  border: 1px solid rgb(40, 94, 80);
+  border-radius: 10px;
   min-width: 425px;
+`;
+
+export const ModalMessage = styled.p`
+  font-size: 1.125rem;
+`;
+
+export const ModalGroup = styled.div`
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
 `;
 
 export const Modal: React.FC<{

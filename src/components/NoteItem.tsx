@@ -1,43 +1,28 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import dayjs from "dayjs";
 import { Note } from "../hooks/useNotes";
-import Article, { ArticleBody, ArticleHeader, ArticleHeading } from "./Article";
-import { Modal } from "./Modal";
+import Article, {
+  ArticleBody,
+  ArticleHeader,
+  ArticleHeading,
+  ArticleHeadingLink,
+  ArticleSubheading,
+} from "./Article";
 
 const NoteItem: React.FC<{
-  deleteNote: (id: string) => void;
   note: Note;
-}> = ({ deleteNote, note }) => {
-  const [isModalActive, setIsModalActive] = useState(false);
-
-  const handleDeleteClick = () => {
-    setIsModalActive(true);
-  };
-
-  const handleConfirmDeleteClick = () => {
-    deleteNote(note.id);
-    setIsModalActive(false);
-  };
-
-  const handleCancelDeleteClick = () => {
-    setIsModalActive(false);
-  };
-
-  return (
-    <Article>
-      <ArticleHeader>
-        <ArticleHeading>{note.title}</ArticleHeading>
-        <Link to={`/${note.id}`}>(edit)</Link>
-        <button onClick={handleDeleteClick}>(delete)</button>
-      </ArticleHeader>
-      <ArticleBody>{note.body}</ArticleBody>
-      <Modal isActive={isModalActive} setIsActive={setIsModalActive}>
-        <p>Are you sure you want to delete this?</p>
-        <button onClick={handleConfirmDeleteClick}>Yes!</button>
-        <button onClick={handleCancelDeleteClick}>No, take me back</button>
-      </Modal>
-    </Article>
-  );
-};
+}> = ({ note }) => (
+  <Article>
+    <ArticleHeader>
+      <ArticleHeading>
+        <ArticleHeadingLink to={note.id}>{note.title}</ArticleHeadingLink>
+      </ArticleHeading>
+      <ArticleSubheading>
+        {dayjs(note.createdAt).format("MMM D, YYYY h:mm a")}
+      </ArticleSubheading>
+    </ArticleHeader>
+    <ArticleBody>{note.body}</ArticleBody>
+  </Article>
+);
 
 export default NoteItem;

@@ -47,8 +47,8 @@ const useNotes = () => {
     setNotes(update);
   };
 
-  const deleteNote = (id: string) => {
-    const update = notes.filter((e) => e.id !== id);
+  const deleteNote = () => {
+    const update = notes.filter((e) => e.id !== note?.id);
     localStorage.setItem("notes", JSON.stringify(update));
     setNotes(update);
   };
