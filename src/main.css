@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Mollie Glaston";
-  src: url("./mollie_glaston.otf");
+  src: url("$fonts/mollie_glaston.otf");
 }
 
 body {
