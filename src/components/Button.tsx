@@ -10,9 +10,9 @@ const Button = styled.button<{
   max-width: 10rem;
   border-radius: 10px;
   border: none;
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 700;
-  line-height: 20px;
+  line-height: 1.2;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 4px;
   background-color: rgb(40, 94, 80);
   color: rgb(255, 255, 255);

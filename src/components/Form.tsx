@@ -47,7 +47,7 @@ export const TextArea = styled.textarea`
   box-sizing: border-box;
   border-radius: 8px;
   border: 1px solid rgb(90, 90, 90);
-  padding: 20px 23px;
+  padding: 1.125rem 1.25rem;
 `;
 
 export const Group = styled.div`
