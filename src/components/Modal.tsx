@@ -1,8 +1,7 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { styled } from "styled-components";
 
-const ModalWrapper = styled.div<{ $isActive: boolean }>`
-  display: none;
+const ModalWrapper = styled.div`
   position: fixed;
   width: 100%;
   height: 100%;
@@ -12,12 +11,6 @@ const ModalWrapper = styled.div<{ $isActive: boolean }>`
   z-index: 1000;
   align-items: center;
   justify-content: center;
-
-  ${({ $isActive }) =>
-    $isActive &&
-    `
-    display: flex;
-  `}
 `;
 
 const ModalBox = styled.div`
@@ -41,14 +34,10 @@ export const ModalGroup = styled.div`
 `;
 
 export const Modal: React.FC<{
-  isActive: boolean;
   setIsActive: Dispatch<SetStateAction<boolean>>;
   children: React.ReactNode;
-}> = ({ setIsActive, isActive, children }) => (
-  <ModalWrapper
-    onClick={() => setIsActive(false)}
-    $isActive={Boolean(isActive)}
-  >
+}> = ({ setIsActive, children }) => (
+  <ModalWrapper onClick={() => setIsActive(false)}>
     <ModalBox>{children}</ModalBox>
   </ModalWrapper>
 );

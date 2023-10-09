@@ -69,7 +69,8 @@ const useNotes = () => {
 
   const note = useMemo(() => {
     if (!params.noteId) return;
-    return notes.find((e) => e.id === params.noteId);
+    const note = notes.find((e) => e.id === params.noteId);
+    return note;
   }, [params, notes]);
 
   return { createNote, deleteNote, editNote, note, notes };

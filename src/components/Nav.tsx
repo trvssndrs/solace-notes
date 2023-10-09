@@ -44,7 +44,7 @@ const Nav = () => {
                   id="search"
                   name="search"
                   type="search"
-                  defaultValue={s}
+                  value={s}
                   onChange={handleSearchChange}
                 />
               </Field>

@@ -122,7 +122,7 @@ const NoteEdit = () => {
 
   return (
     <>
-      <Form onSubmit={handleSubmit}>
+      <Form role="form" onSubmit={handleSubmit}>
         <Field htmlFor="title">
           <Label>Create a title for your note</Label>
           <SubLabel>
@@ -130,7 +130,7 @@ const NoteEdit = () => {
             later
           </SubLabel>
           <Input
-            defaultValue={title}
+            value={title}
             onChange={handleTitleChange}
             name="title"
             id="title"
@@ -168,24 +168,25 @@ const NoteEdit = () => {
           <Button type="submit">Save Note</Button>
         </Group>
       </Form>
-      <Modal
-        isActive={isDeleteModalActive}
-        setIsActive={setIsDeleteModalActive}
-      >
-        <ModalMessage>Are you sure you want to delete this note?</ModalMessage>
-        <ModalGroup>
-          <Button type="button" onClick={handleCancelClick}>
-            Cancel
-          </Button>
-          <Button
-            type="submit"
-            $variant="secondary"
-            onClick={handleDeleteConfirmClick}
-          >
-            Delete
-          </Button>
-        </ModalGroup>
-      </Modal>
+      {isDeleteModalActive && (
+        <Modal setIsActive={setIsDeleteModalActive}>
+          <ModalMessage>
+            Are you sure you want to delete this note?
+          </ModalMessage>
+          <ModalGroup>
+            <Button type="button" onClick={handleCancelClick}>
+              No, cancel
+            </Button>
+            <Button
+              type="button"
+              $variant="secondary"
+              onClick={handleDeleteConfirmClick}
+            >
+              Yes, delete
+            </Button>
+          </ModalGroup>
+        </Modal>
+      )}
     </>
   );
 };
